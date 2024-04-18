@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Quiz</title>
+    <style>
+        body {
+            background-color: rgb(90, 90, 90);
+        }
+        h1 {
+            color: red;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item {
+            margin: 10px;
+            text-align: center;
+            position: relative;
+            width: 200px; /* Breite anpassen */
+            height: 200px; /* Höhe anpassen */
+            border: 2px dashed #ccc; /* Gestrichelte Umrandung */
+            border-radius: 5px; /* Abgerundete Ecken */
+            background-color: #f9f9f9; /* Hintergrundfarbe */
+        }
+        .term {
+            margin-top: 10px; /* Abstand zum Bild */
+            padding: 5px 10px; /* Innenabstand */
+            background-color: #f2f2f2; /* Hintergrundfarbe */
+            border: 1px solid #ccc; /* Umrandung */
+            border-radius: 5px; /* Abgerundete Ecken */
+            cursor: pointer; /* Zeiger-Cursor */
+            display: inline-block; /* In einer Zeile anzeigen */
+            margin-right: 5px; /* Rechten Abstand zwischen den Begriffen hinzufügen */
+            margin-bottom: 5px; /* Unteren Abstand zwischen den Begriffen hinzufügen */
+        }
+    </style>
+</head>
+<body>
+    <h1>MARVEL Quizz</h1>
+    <p>Die Infinity-Steine sind mächtige Artefakte im Marvel-Universum, die in verschiedenen Comics, Filmen und Serien eine zentrale Rolle spielen. <br>
+    Es gibt insgesamt sechs dieser Steine, von denen jeder eine einzigartige Kraft verkörpert und das Universum auf verschiedene Weisen beeinflussen kann.</p>
+    <p>Nun möchte ich von dir, dass du den abgebildeten Infinitysteinen den dazugehörigen Namen zuordnest!</p>
+    <div class="container">
+        <div class="item" id="s1">
+            <div class="image-container">
+                <img src="Orangener.png" alt="Infinity Stein 1" width="200px" height="150px">
+            </div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
+        </div>
+        <div class="item" id="s2">
+            <div class="image-container">
+                <img src="Lilaner.png" alt="Infinity Stein 2" width="200px" height="150px">
+            </div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
+        </div>
+        <div class="item" id="s3">
+            <div class="image-container">
+                <img src="Gruner.png" alt="Infinity Stein 3" width="200px" height="150px">
+            </div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
+        </div>
+        <div class="item" id="s4">
+            <div class="image-container">
+                <img src="Blauer.png" alt="Infinity Stein 4" width="200px" height="150px">
+            </div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
+        </div>
+        <div class="item" id="s5">
+            <div class="image-container">
+                <img src="Roter.png" alt="Infinity Stein 5" width="200px" height="150px">
+            </div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
+        </div>
+        <div class="item" id="s6">
+            <div class="image-container">
+                <img src="Gelber.png" alt="Infinity Stein 6" width="200px" height="150px">
+            </div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
+        </div>
+    </div>
+    <div class="terms">
+        <p class="term" id="raumstein">Raumstein</p>
+        <p class="term" id="geiststein">Geiststein</p>
+        <p class="term" id="realitaetsstein">Realitätsstein</p>
+        <p class="term" id="machtstein">Machtstein</p>
+        <p class="term" id="zeitstein">Der Zeitstein</p>
+        <p class="term" id="seelestein">Die Seele des Stein</p>
+    </div>
+    <script>
+        // Event listener für Begriffe
+        const terms = document.querySelectorAll('.term');
+        terms.forEach(term => {
+            term.addEventListener('click', () => {
+                // Begriff zum zuletzt ausgewählten Bild hinzufügen
+                const selectedImage = document.querySelector('.selected-image');
+                if (selectedImage && !selectedImage.querySelector('.assigned-term').textContent) {
+                    selectedImage.querySelector('.assigned-term').textContent = term.textContent;
+                }
+            });
+        });
+
+        // Event listener für Bilder
+        const items = document.querySelectorAll('.item');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                // Markiere das ausgewählte Bild
+                const selectedImage = document.querySelector('.selected-image');
+                if (selectedImage) {
+                    selectedImage.classList.remove('selected-image');
+                }
+                item.classList.add('selected-image');
+            });
+        });
+    </script>
+</body>
+</html>
